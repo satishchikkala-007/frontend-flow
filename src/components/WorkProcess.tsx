@@ -1,78 +1,89 @@
 import { motion } from "framer-motion";
-import { Search, Layout, Palette, Boxes, CheckCircle2 } from "lucide-react";
 
 const WorkProcess = () => {
   const steps = [
     {
       number: "1",
       title: "Research",
-      description: "Deep dive into user needs, market analysis, and competitive research to inform design decisions.",
-      icon: Search,
+      description: "I begin by understanding the user's needs, project goals, and target audience. This stage involves collecting insights, studying competitors, and defining key problems to solve.",
     },
     {
       number: "2",
       title: "Wireframe",
-      description: "Creating low-fidelity wireframes to establish structure, layout, and information architecture.",
-      icon: Layout,
+      description: "Next, I create low-fidelity sketches and layouts to map out user flows. This helps visualize the structure and ensure every element supports usability and function.",
     },
     {
       number: "3",
       title: "Design",
-      description: "Developing high-fidelity designs with careful attention to visual hierarchy, typography, and color.",
-      icon: Palette,
+      description: "Using Figma and design systems, I bring ideas to life with clean visuals, color palettes, and typography — focusing on clarity, consistency, and modern aesthetics.",
     },
     {
       number: "4",
-      title: "Prototype",
-      description: "Building interactive prototypes to test user flows and validate design concepts before development.",
-      icon: Boxes,
+      title: "Feedback",
+      description: "I collaborate with teammates and mentors to review designs, refine user journeys, and improve visual hierarchy based on feedback and usability insights.",
     },
     {
       number: "5",
-      title: "Finalize",
-      description: "Refining designs based on feedback, preparing assets, and ensuring smooth developer handoff.",
-      icon: CheckCircle2,
+      title: "Prototype",
+      description: "Finally, I create interactive prototypes to simulate real user experiences. These help test interactions, improve engagement, and prepare the design for development handoff.",
     },
   ];
 
   return (
-    <section id="process" className="section-padding">
-      <div className="max-w-6xl mx-auto">
+    <section id="process" className="section-padding bg-secondary">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-4"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Work Process</h2>
-          <p className="text-muted-foreground text-lg">
-            A systematic approach to creating exceptional designs
+          <p className="text-foreground/70 text-base italic">
+            " From research to reality — my creative workflow "
           </p>
         </motion.div>
 
-        <div className="space-y-8">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="flex gap-6 items-start"
-            >
-              <div className="flex-shrink-0 w-16 h-16 bg-accent text-accent-foreground rounded-2xl flex items-center justify-center text-2xl font-bold">
-                {step.number}
-              </div>
-              <div className="flex-1 pt-2">
-                <div className="flex items-center gap-3 mb-3">
-                  <step.icon className="w-6 h-6 text-accent" />
-                  <h3 className="text-2xl font-semibold">{step.title}</h3>
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start mt-16">
+          {/* Left Side - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="aspect-square bg-background rounded-2xl overflow-hidden shadow-lg transform rotate-2">
+              <img
+                src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=600&fit=crop"
+                alt="Design mockups and wireframes"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right Side - Process Steps */}
+          <div className="space-y-12">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="text-6xl md:text-7xl font-bold text-foreground mb-3">
+                  {step.number}
                 </div>
-                <p className="text-muted-foreground text-lg">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">{step.title}</h3>
+                <p className="text-foreground/70 text-base leading-relaxed">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

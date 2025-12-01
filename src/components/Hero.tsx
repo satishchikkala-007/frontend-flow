@@ -1,42 +1,86 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Home, Wrench, Users, FileText, Smartphone } from "lucide-react";
 
 const Hero = () => {
+  const navItems = [
+    { icon: Home, href: "#home" },
+    { icon: Wrench, href: "#skills" },
+    { icon: Users, href: "#about" },
+    { icon: FileText, href: "#process" },
+    { icon: Smartphone, href: "#contact" },
+  ];
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center section-padding">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center section-padding dark-section relative">
+      {/* Floating Icon Navigation */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="absolute top-24 flex gap-8 bg-white rounded-full px-12 py-4 shadow-lg"
+      >
+        {navItems.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" })}
+            className="text-primary hover:text-accent transition-colors"
+          >
+            <item.icon size={28} strokeWidth={1.5} />
+          </button>
+        ))}
+      </motion.div>
+
+      {/* Main Content with Decorative Border */}
+      <div className="max-w-5xl mx-auto text-center relative mt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative border-2 border-white/20 rounded-3xl p-16 md:p-20"
         >
-          <p className="text-lg text-muted-foreground mb-4">Hello, I am</p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Sartish Chikhale
-          </h1>
-          <p className="text-2xl md:text-3xl text-accent font-semibold mb-8">
-            UI/UX Designer
-          </p>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Creating beautiful, functional, and user-centered digital experiences
-            that make a lasting impact.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
-              onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Get In Touch <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              View My Work
-            </Button>
+          {/* Corner Decorations */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
+          <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
+          <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
+          <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
+          <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
+
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-4xl md:text-6xl font-medium mb-4">
+                Hello I'am{" "}
+                <span className="text-[#D4FF00] font-bold">
+                  Satish<br />Chikkala
+                </span>
+              </h1>
+              <p className="text-2xl md:text-4xl font-light text-white mt-6">
+                UI UX Designer
+              </p>
+            </div>
+
+            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+              A passionate UI/UX designer focused on growth, innovation, and
+              human-centered design. I create seamless digital journeys that move
+              ideas into action.
+            </p>
+
+            <div className="flex gap-6 justify-center flex-wrap pt-8">
+              <Button
+                size="lg"
+                className="bg-white hover:bg-white/90 text-primary px-10 py-6 text-base font-medium rounded-xl"
+                onClick={() => document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                View My Work
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-6 text-base font-medium rounded-xl bg-transparent"
+              >
+                Resume
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>
