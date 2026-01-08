@@ -1,20 +1,33 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Home, User, Layers, FolderOpen, Mail, Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Determine active section
+      const sections = ["home", "about", "skills", "works", "contact"];
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -27,12 +40,11 @@ const Navigation = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#skills", label: "Skills" },
-    { href: "#about", label: "About" },
-    { href: "#process", label: "Process" },
-    { href: "#works", label: "Works" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: "Home", icon: Home },
+    { href: "#about", label: "About", icon: User },
+    { href: "#skills", label: "Skills", icon: Layers },
+    { href: "#works", label: "Projects", icon: FolderOpen },
+    { href: "#contact", label: "Contact", icon: Mail },
   ];
 
   const scrollToSection = (href: string) => {
@@ -45,78 +57,96 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Desktop & Mobile Header */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-primary/95 backdrop-blur-md shadow-lg py-4"
-            : "bg-transparent py-6"
+            ? "bg-primary/95 backdrop-blur-md shadow-lg py-3"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo/Name */}
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("#home");
             }}
-            className="flex items-center gap-1"
+            className="flex flex-col"
           >
-            <span className="text-2xl font-bold text-white">B</span>
-            <span className="text-2xl font-bold text-white">S</span>
-            <span className="text-2xl font-bold text-accent">V</span>
+            <span className="text-xs text-white/60 font-medium tracking-wider uppercase">Portfolio</span>
+            <span className="text-lg font-bold text-white leading-tight">
+              Chikkala <span className="text-[#D4FF00]">Satyanarayana</span>
+            </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-white/80 hover:text-accent transition-colors text-sm font-medium relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
-              </button>
-            ))}
+          {/* Desktop Navigation - Icon Based with Hover Text */}
+          <nav className="hidden md:flex items-center gap-2">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              const isActive = activeSection === link.href.slice(1);
+              
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.href)}
+                  className={`group relative flex flex-col items-center px-4 py-2 rounded-xl transition-all duration-300 ${
+                    isActive 
+                      ? "bg-[#D4FF00]/20" 
+                      : "hover:bg-white/10"
+                  }`}
+                >
+                  <Icon 
+                    className={`w-5 h-5 transition-colors duration-200 ${
+                      isActive ? "text-[#D4FF00]" : "text-white/70 group-hover:text-white"
+                    }`} 
+                  />
+                  <motion.span
+                    initial={{ opacity: 0, y: -5 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    className={`absolute top-full mt-1 text-xs font-medium transition-all duration-200 opacity-0 group-hover:opacity-100 ${
+                      isActive ? "text-[#D4FF00]" : "text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </motion.span>
+                </button>
+              );
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center"
+            className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-xl bg-white/10"
             aria-label="Toggle menu"
           >
-            <div className="relative w-6 h-5">
-              <motion.span
-                animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 8 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="absolute top-0 left-0 w-full h-0.5 bg-white rounded-full"
-              />
-              <motion.span
-                animate={{
-                  opacity: isMobileMenuOpen ? 0 : 1,
-                  x: isMobileMenuOpen ? -10 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="absolute top-2 left-0 w-full h-0.5 bg-white rounded-full"
-              />
-              <motion.span
-                animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -8 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="absolute top-4 left-0 w-full h-0.5 bg-white rounded-full"
-              />
-            </div>
+            <AnimatePresence mode="wait">
+              {isMobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-5 h-5 text-white" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-5 h-5 text-white" />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </motion.header>
@@ -136,21 +166,29 @@ const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center justify-center h-full gap-8"
+              className="flex flex-col items-center justify-center h-full gap-6"
             >
-              {navLinks.map((link, index) => (
-                <motion.button
-                  key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-3xl font-medium text-white hover:text-accent transition-colors"
-                >
-                  {link.label}
-                </motion.button>
-              ))}
+              {navLinks.map((link, index) => {
+                const Icon = link.icon;
+                const isActive = activeSection === link.href.slice(1);
+                
+                return (
+                  <motion.button
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
+                    onClick={() => scrollToSection(link.href)}
+                    className={`flex items-center gap-4 text-2xl font-medium transition-colors ${
+                      isActive ? "text-[#D4FF00]" : "text-white hover:text-[#D4FF00]"
+                    }`}
+                  >
+                    <Icon className="w-6 h-6" />
+                    {link.label}
+                  </motion.button>
+                );
+              })}
             </motion.div>
           </motion.div>
         )}
