@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -58,6 +59,23 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        onClick={() => document.querySelector("#skills")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer"
+      >
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown size={24} />
+        </motion.div>
+      </motion.button>
     </section>
   );
 };
