@@ -85,14 +85,6 @@ const Navigation = () => {
             ))}
           </nav>
 
-          {/* Hire Me Button - Desktop */}
-          <button
-            onClick={() => scrollToSection("#contact")}
-            className="hidden md:block bg-accent text-primary px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
-          >
-            Hire Me
-          </button>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -159,17 +151,6 @@ const Navigation = () => {
                   {link.label}
                 </motion.button>
               ))}
-              
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-                onClick={() => scrollToSection("#contact")}
-                className="mt-4 bg-accent text-primary px-8 py-3 rounded-full text-lg font-semibold hover:bg-accent/90 transition-colors"
-              >
-                Hire Me
-              </motion.button>
             </motion.div>
           </motion.div>
         )}

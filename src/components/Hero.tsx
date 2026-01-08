@@ -1,35 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Home, Wrench, Users, FileText, Smartphone } from "lucide-react";
 
 const Hero = () => {
-  const navItems = [
-    { icon: Home, href: "#home" },
-    { icon: Wrench, href: "#skills" },
-    { icon: Users, href: "#about" },
-    { icon: FileText, href: "#process" },
-    { icon: Smartphone, href: "#contact" },
-  ];
-
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center section-padding dark-section relative">
-      {/* Floating Icon Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="absolute top-24 flex gap-8 bg-white rounded-full px-12 py-4 shadow-lg"
-      >
-        {navItems.map((item, index) => (
-          <button
-            key={index}
-            onClick={() => document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" })}
-            className="text-primary hover:text-accent transition-colors"
-          >
-            <item.icon size={28} strokeWidth={1.5} />
-          </button>
-        ))}
-      </motion.div>
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center section-padding dark-section relative pt-24">
 
       {/* Main Content with Decorative Border */}
       <div className="max-w-5xl mx-auto text-center relative mt-20">
