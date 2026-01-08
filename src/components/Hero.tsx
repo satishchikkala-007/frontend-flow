@@ -1,62 +1,108 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download, ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex flex-col items-center justify-center section-padding dark-section relative pt-24">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center section-padding dark-section relative pt-24 overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#D4FF00]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#D4FF00]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full" />
+      </div>
 
-      {/* Main Content with Decorative Border */}
-      <div className="max-w-5xl mx-auto text-center relative mt-20">
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative border-2 border-white/20 rounded-3xl p-16 md:p-20"
+          transition={{ duration: 0.8 }}
+          className="space-y-8"
         >
-          {/* Corner Decorations */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
-          <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
-          <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
-          <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
-          <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-sm" />
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10"
+          >
+            <span className="w-2 h-2 bg-[#D4FF00] rounded-full animate-pulse" />
+            <span className="text-sm text-white/80 font-medium">Available for Work</span>
+          </motion.div>
 
-          <div className="space-y-8">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-medium mb-4">
-                Hello I'am{" "}
-                <span className="text-[#D4FF00] font-bold">
-                  Satish<br />Chikkala
-                </span>
-              </h1>
-              <p className="text-2xl md:text-4xl font-light text-white mt-6">
-                UI UX Designer
-              </p>
+          {/* Main Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <span className="text-white">UI/UX Designer</span>
+              <br />
+              <span className="text-[#D4FF00]">crafting intuitive</span>
+              <br />
+              <span className="text-white/90">digital experiences</span>
+            </h1>
+          </motion.div>
+
+          {/* Subheading */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
+          >
+            1 year of experience designing mobile & web interfaces that users love. 
+            Transforming complex problems into simple, beautiful solutions.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex gap-4 justify-center flex-wrap pt-4"
+          >
+            <Button
+              size="lg"
+              className="bg-[#D4FF00] hover:bg-[#D4FF00]/90 text-primary px-8 py-6 text-base font-semibold rounded-xl group"
+              onClick={() => document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              View Projects
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 text-base font-semibold rounded-xl bg-transparent group"
+            >
+              <Download className="mr-2 w-5 h-5" />
+              Download Resume
+            </Button>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex justify-center gap-12 pt-12"
+          >
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">1+</p>
+              <p className="text-sm text-white/60 mt-1">Years Experience</p>
             </div>
-
-            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-              A passionate UI/UX designer focused on growth, innovation, and
-              human-centered design. I create seamless digital journeys that move
-              ideas into action.
-            </p>
-
-            <div className="flex gap-6 justify-center flex-wrap pt-8">
-              <Button
-                size="lg"
-                className="bg-white hover:bg-white/90 text-primary px-10 py-6 text-base font-medium rounded-xl"
-                onClick={() => document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                View My Work
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-6 text-base font-medium rounded-xl bg-transparent"
-              >
-                Resume
-              </Button>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">10+</p>
+              <p className="text-sm text-white/60 mt-1">Projects Completed</p>
             </div>
-          </div>
+            <div className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">5+</p>
+              <p className="text-sm text-white/60 mt-1">Happy Clients</p>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -65,7 +111,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        onClick={() => document.querySelector("#skills")?.scrollIntoView({ behavior: "smooth" })}
+        onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer"
       >
         <span className="text-xs tracking-widest uppercase">Scroll</span>
