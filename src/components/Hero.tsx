@@ -39,11 +39,11 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-white">UI/UX Designer</span>
+              <span className="text-white">Hello I'm</span>
               <br />
-              <span className="text-[#D4FF00]">crafting intuitive</span>
+              <span className="text-[#D4FF00]">Satish Chikkala</span>
               <br />
-              <span className="text-white/90">digital experiences</span>
+              <span className="text-white/90 font-normal  text-3xl md:text-4xl lg:text-5xl">UI UX Designer</span>
             </h1>
           </motion.div>
 
@@ -54,8 +54,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
           >
-            1 year of experience designing mobile & web interfaces that users love. 
-            Transforming complex problems into simple, beautiful solutions.
+            A passionate UI/UX designer focused on growth, innovation, and human-centered design. I create seamless digital journeys that move ideas into action.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -67,7 +66,7 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="bg-[#D4FF00] hover:bg-[#D4FF00]/90 text-primary px-8 py-6 text-base font-semibold rounded-xl group"
+              className="min-w-[220px] bg-[#D4FF00] hover:bg-[#D4FF00]/90 text-primary px-8 py-6 text-base font-semibold rounded-xl group"
               onClick={() => document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" })}
             >
               View Projects
@@ -76,15 +75,15 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 text-base font-semibold rounded-xl bg-transparent group"
+              className="max-w-[220px] border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 text-base font-semibold rounded-xl bg-transparent group"
             >
               <Download className="mr-2 w-5 h-5" />
-              Download Resume
+              View Resume
             </Button>
           </motion.div>
 
           {/* Stats */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -102,7 +101,7 @@ const Hero = () => {
               <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">5+</p>
               <p className="text-sm text-white/60 mt-1">Happy Clients</p>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
 

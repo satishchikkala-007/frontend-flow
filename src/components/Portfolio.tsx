@@ -6,7 +6,7 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Aayu Mobile App",
-      category: "Healthcare",
+      category: "",
       description: "A comprehensive healthcare mobile application designed to connect patients with doctors, manage appointments, and track health records seamlessly.",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
       tags: ["Mobile App", "Healthcare", "UI/UX"],
@@ -14,7 +14,7 @@ const Portfolio = () => {
     },
     {
       title: "Health Span Life Span",
-      category: "Web & Mobile",
+      category: "",
       description: "A wellness platform focusing on longevity and healthy living, featuring personalized health insights and lifestyle recommendations.",
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
       tags: ["Web Design", "Mobile", "Health Tech"],
@@ -22,7 +22,7 @@ const Portfolio = () => {
     },
     {
       title: "Branding Logo Design",
-      category: "Brand Identity",
+      category: "",
       description: "Creative logo design and brand identity projects for various startups and businesses, establishing strong visual foundations.",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
       tags: ["Branding", "Logo", "Identity"],
@@ -40,8 +40,8 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#22C55E] font-semibold mb-2 text-sm tracking-wider uppercase">Portfolio</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+          <p className="text-[#22C55E] font-semibold mb-2 text-sm tracking-wider uppercase"></p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A selection of projects showcasing my design expertise and problem-solving abilities
           </p>
@@ -88,13 +88,17 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="mt-4 group/btn border-primary/20 hover:bg-primary hover:text-primary-foreground"
-                >
-                  View Case Study
-                  <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                </Button>
+               <Button
+  variant="outline"
+  className="mt-4 group/btn border-primary/20 hover:bg-primary hover:text-primary-foreground"
+>
+  View Case Study
+  <ArrowUpRight
+    className="ml-2 w-4 h-4 transition-transform duration-500
+               group-hover/btn:rotate-45"
+  />
+</Button>
+
               </div>
             </motion.div>
           ))}
@@ -110,10 +114,13 @@ const Portfolio = () => {
         >
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            className="bg-primary group/btn hover:bg-primary/90 text-primary-foreground px-8"
           >
             View All Projects
-            <ArrowUpRight className="ml-2 w-5 h-5" />
+           <ArrowUpRight
+    className="ml-2 w-5 h-5 transition-transform duration-500
+               group-hover/btn:rotate-45"
+  />
           </Button>
         </motion.div>
       </div>

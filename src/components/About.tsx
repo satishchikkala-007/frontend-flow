@@ -34,7 +34,7 @@ const About = () => {
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop"
+                src="profilee.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -55,31 +55,26 @@ const About = () => {
             className="space-y-8"
           >
             <div>
-              <p className="text-[#22C55E] font-semibold mb-2 text-sm tracking-wider uppercase">About Me</p>
+              <p className="text-[#22C55E] font-semibold mb-2 text-sm tracking-wider uppercase"></p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Chikkala Satyanarayana Murthy
+                About Me
               </h2>
             </div>
             
             <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
               <p>
-                I'm a passionate UI/UX designer with expertise in creating user-centered 
-                digital experiences. With a strong foundation in design principles and 
-                a keen eye for aesthetics, I transform complex ideas into intuitive interfaces.
+                I’m a UI/UX designer who enjoys creating simple, user-friendly digital experiences. I like turning complex ideas into clear and intuitive designs by relying on strong design fundamentals and attention to detail.
               </p>
               <p>
-                My approach combines creative thinking with data-driven insights to craft 
-                designs that not only look beautiful but also deliver measurable results. 
-                I specialize in mobile app design, web interfaces, and brand identity.
+                I approach design by balancing creative thinking with data-informed decisions, making sure the work not only looks good but also works well. I’ve designed for mobile apps, responsive websites, and web platforms, along with brand identity systems, always focusing on usability, consistency, and clarity.
               </p>
               <p>
-                Currently focused on healthcare and lifestyle applications, I'm dedicated 
-                to creating designs that make a positive impact on users' daily lives.
+                At the moment, I focus on building mobile and web experiences that make everyday interactions easier and more meaningful through thoughtful, accessible, and scalable design.
               </p>
             </div>
 
             {/* Highlights Grid */}
-            <div className="grid grid-cols-3 gap-4 pt-4">
+            {/* <div className="grid grid-cols-3 gap-4 pt-4">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -96,7 +91,7 @@ const About = () => {
                   <p className="text-xs text-muted-foreground">{item.description}</p>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

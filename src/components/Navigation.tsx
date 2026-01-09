@@ -77,9 +77,9 @@ const Navigation = () => {
             }}
             className="flex flex-col"
           >
-            <span className="text-xs text-white/60 font-medium tracking-wider uppercase">Portfolio</span>
+            <span className="text-xs text-white/60 font-medium tracking-wider uppercase"></span>
             <span className="text-lg font-bold text-white leading-tight">
-              Chikkala <span className="text-[#D4FF00]">Satyanarayana</span>
+             <span className="text-[#D4FF00]">My Folio</span>
             </span>
           </a>
 

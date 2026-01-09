@@ -2,26 +2,37 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Linkedin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Send, Github, Dribbble } from "lucide-react";
 
 const Contact = () => {
+  const socialIcons = {
+    linkedin: Linkedin,
+    behance: () => (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M2 3.5C2 2.67 2.67 2 3.5 2h17C21.33 2 22 2.67 22 3.5v17c0 .83-.67 1.5-1.5 1.5h-17C2.67 22 2 21.33 2 20.5v-17zM7 11h-3v9h3v-9zm1.5-4.5c0 1 .75 1.5 1.5 1.5s1.5-.5 1.5-1.5-.75-1.5-1.5-1.5-1.5.5-1.5 1.5zM18 20h3v-5c0-2-1.5-3.5-3.5-3.5-1 0-2 .5-2.5 1.5v-1h-3v9h3v-5c0-1 .5-1.5 1.5-1.5s1.5.5 1.5 1.5v5z" />
+      </svg>
+    ),
+    dribbble: Dribbble,
+    github: Github,
+  };
+
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "satyanarayana@email.com",
-      href: "mailto:satyanarayana@email.com",
+      value: "satishchikkala97@gmail.com",
+      href: "mailto:satishchikkala97@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 98765 43210",
-      href: "tel:+919876543210",
+      value: "+91 8096949567",
+      href: "tel:+918096949567",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Hyderabad, India",
+      value: "Amalapuram, India",
       href: null,
     },
     {
@@ -42,10 +53,11 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#D4FF00] font-semibold mb-2 text-sm tracking-wider uppercase">Get In Touch</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Work Together</h2>
+          <p className="text-[#D4FF00] font-semibold mb-2 text-sm tracking-wider uppercase"></p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Talk for </h2>
+             <h2 className="text-4xl md:text-5xl font-bold mb-4">Something Special</h2>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+            I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
           </p>
         </motion.div>
 
@@ -61,7 +73,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-white">Contact Information</h3>
               <p className="text-white/70 leading-relaxed">
-                Feel free to reach out through any of these channels. I typically respond within 24 hours.
+              
               </p>
             </div>
             
