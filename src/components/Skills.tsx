@@ -81,28 +81,60 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Soft Skills Tags */}
+        {/* Work Process Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="mt-20"
         >
-          <h3 className="text-xl font-semibold mb-6 text-white/90">Core Competencies</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {softSkills.map((skill, index) => (
-              <motion.span
-                key={skill}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/80 hover:bg-[#D4FF00]/10 hover:border-[#D4FF00]/30 hover:text-[#D4FF00] transition-all cursor-default"
-              >
-                {skill}
-              </motion.span>
-            ))}
+          <div className="mb-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">Work Process</h3>
+            <p className="text-white/60 text-lg">" From research to reality — my creative workflow "</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Left: Image Collage */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative bg-white/5 rounded-2xl p-6 border border-white/10 min-h-[400px] flex items-center justify-center"
+            >
+              <div className="grid grid-cols-2 gap-3 w-full">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="bg-white/10 rounded-xl aspect-video flex items-center justify-center border border-white/5">
+                    <span className="text-white/30 text-sm">Project {i}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+            
+            {/* Right: Process Steps */}
+            <div className="space-y-8">
+              {[
+                { num: 1, title: "Research", desc: "I begin by understanding the user's needs, project goals, and target audience. This stage involves collecting insights, studying competitors, and defining key problems to solve." },
+                { num: 2, title: "Wireframe", desc: "Next, I create low-fidelity sketches and layouts to map out user flows. This helps visualize the structure and ensure every element supports usability and function." },
+                { num: 3, title: "Design", desc: "Using Figma and design systems, I bring ideas to life with clean visuals, color palettes, and typography — focusing on clarity, consistency, and modern aesthetics." },
+                { num: 4, title: "Feedback", desc: "I collaborate with teammates and mentors to review designs, refine user journeys, and improve visual hierarchy based on feedback and usability insights." },
+                { num: 5, title: "Prototype", desc: "Finally, I create interactive prototypes to simulate real user experiences. These help test interactions, improve engagement, and prepare the design for development handoff." },
+              ].map((step, index) => (
+                <motion.div
+                  key={step.num}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <span className="text-3xl font-bold text-[#D4FF00] mb-1 block">{step.num}</span>
+                  <h4 className="text-xl font-semibold text-white mb-2">{step.title}</h4>
+                  <p className="text-white/60 text-sm leading-relaxed">{step.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
