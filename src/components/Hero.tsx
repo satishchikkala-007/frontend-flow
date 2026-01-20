@@ -7,8 +7,8 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex flex-col items-center justify-center section-padding dark-section relative pt-24 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#D4FF00]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#D4FF00]/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#FFF98A]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FFF98A]/5 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full" />
       </div>
@@ -28,7 +28,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10"
           >
-            <span className="w-2 h-2 bg-[#D4FF00] rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-[#FFF98A] rounded-full animate-pulse" />
             <span className="text-sm text-white/80 font-medium">Available for Work</span>
           </motion.div>
 
@@ -38,10 +38,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold ">
               <span className="text-white">Hello I'm</span>
               <br />
-              <span className="text-[#D4FF00]">Satish Chikkala</span>
+              <span className="text-[#FFF98A] text-3xl md:text-5xl lg:text-6xl ">Satish Chikkala</span>
               <br />
               <span className="text-white/90 font-normal  text-3xl md:text-4xl lg:text-5xl">UI UX Designer</span>
             </h1>
@@ -66,7 +66,7 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="min-w-[220px] bg-[#D4FF00] hover:bg-[#D4FF00]/90 text-primary px-8 py-6 text-base font-semibold rounded-xl group"
+              className="min-w-[220px] bg-[#FFF98A] hover:bg-[#FFF98A]/90 text-primary px-8 py-6 text-base font-semibold rounded-xl group"
               onClick={() => document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" })}
             >
               View Projects
@@ -77,8 +77,9 @@ const Hero = () => {
               variant="outline"
               className="max-w-[220px] border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 px-8 py-6 text-base font-semibold rounded-xl bg-transparent group"
             >
-              <Download className="mr-2 w-5 h-5" />
+              
               View Resume
+              <Download className="mr-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </motion.div>
 
@@ -90,15 +91,15 @@ const Hero = () => {
             className="flex justify-center gap-12 pt-12"
           >
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">1+</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#FFF98A]">1+</p>
               <p className="text-sm text-white/60 mt-1">Years Experience</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">10+</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#FFF98A]">10+</p>
               <p className="text-sm text-white/60 mt-1">Projects Completed</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-[#D4FF00]">5+</p>
+              <p className="text-3xl md:text-4xl font-bold text-[#FFF98A]">5+</p>
               <p className="text-sm text-white/60 mt-1">Happy Clients</p>
             </div>
           </motion.div> */}

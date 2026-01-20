@@ -1,24 +1,31 @@
 import { motion } from "framer-motion";
-import { 
-  Figma, 
-  Palette, 
-  Layout, 
-  Smartphone, 
-  PenTool, 
-  Layers,
-  Monitor,
-  Lightbulb
-} from "lucide-react";
+// import { 
+//   Figma, 
+//   Palette, 
+//   Layout, 
+//   Smartphone, 
+//   PenTool, 
+//   Layers,
+//   Monitor,
+//   Lightbulb
+// } from "lucide-react";
+import FigmaIcon from "/Figma.svg?url";
+import PenToolIcon from "/adobe-xd.svg?url";
+import LayersIcon from "/photoshop.svg?url";
+import SmartphoneIcon from "/lottiefiles.svg?url";
+import MonitorIcon from "/html.svg?url";
+import LightbulbIcon from "/css.svg?url";
+import workImage from "/work.jpg?url";
 
 const Skills = () => {
   const skills = [
-    { icon: Figma, label: "Figma", description: "", level: 95 },
-    { icon: PenTool, label: "Adobe XD", description: "", level: 90 },
+    { icon: FigmaIcon, label: "Figma", description: "", level: 95 },
+    { icon: PenToolIcon, label: "Adobe XD", description: "", level: 90 },
     
-    { icon: Layers, label: "Photoshop", description: "", level: 88 },
-    { icon: Smartphone, label: "Lottie", description: "", level: 92 },
-    { icon: Monitor, label: "HTML", description: "", level: 90 },
-    { icon: Lightbulb, label: "CSS", description: "", level: 85 },
+    { icon: LayersIcon, label: "Photoshop", description: "", level: 88 },
+    { icon: SmartphoneIcon, label: "Lottie", description: "", level: 92 },
+    { icon: MonitorIcon, label: "HTML", description: "", level: 90 },
+    { icon: LightbulbIcon, label: "CSS", description: "", level: 85 },
 
   ];
 
@@ -43,7 +50,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#D4FF00] font-semibold mb-2 text-sm tracking-wider uppercase"></p>
+          <p className="text-[#FFF98A] font-semibold mb-2 text-sm tracking-wider uppercase"></p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">My Skills</h2>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
             A comprehensive toolkit for creating exceptional digital experiences
@@ -59,10 +66,10 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className=" max-w-[300px] group bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#D4FF00]/30"
+              className=" max-w-[300px] group bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-[#FFF98A]/30"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-[#D4FF00]/10 rounded-xl mb-4 group-hover:bg-[#D4FF00]/20 transition-colors">
-                <skill.icon className="w-7 h-7 text-[#D4FF00]" />
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-[#FFF98A]/10 rounded-xl mb-4 group-hover:bg-[#FFF98A]/20 transition-colors">
+                <img src={skill.icon} alt={skill.label} className="w-7 h-7" style={{ filter: "brightness(0) invert(1)" }} />
               </div>
               <h3 className="text-lg font-semibold mb-1 text-white">{skill.label}</h3>
               {/* <p className="text-sm text-white/60 mb-3">{skill.description}</p> */}
@@ -74,7 +81,7 @@ const Skills = () => {
                   whileInView={{ width: `${skill.level}%` }}
                   transition={{ duration: 1, delay: 0.3 + index * 0.1 }}
                   viewport={{ once: true }}
-                  className="h-full bg-gradient-to-r from-[#D4FF00] to-[#22C55E] rounded-full"
+                  className="h-full bg-gradient-to-r from-[#FFF98A] to-[#22C55E] rounded-full"
                 />
               </div> */}
             </motion.div>
@@ -102,14 +109,15 @@ const Skills = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="relative bg-white/5 rounded-2xl p-6 border border-white/10 min-h-[400px] flex items-center justify-center"
+              className="sticky top-24 relative bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center"
             >
               <div className="grid grid-cols-2 gap-3 w-full">
-                {[1, 2, 3, 4].map((i) => (
+                {/* {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="bg-white/10 rounded-xl aspect-video flex items-center justify-center border border-white/5">
                     <span className="text-white/30 text-sm">Project {i}</span>
                   </div>
-                ))}
+                ))} */}
+                <img src={workImage} alt="Work Process" className="w-full sticky h-auto rounded-xl col-span-2" />
               </div>
             </motion.div>
             
@@ -130,13 +138,21 @@ const Skills = () => {
                   viewport={{ once: true }}
                   className="group"
                 >
-                  <span className="text-3xl font-bold text-[#D4FF00] mb-1 block">{step.num}</span>
+                  <div className="flex flex-col gap-3 items-start">
+                  <span className="text-3xl font-bold text-[#FFF98A] mb-1 block">{step.num}</span>
                   <h4 className="text-xl font-semibold text-white mb-2">{step.title}</h4>
-                  <p className="text-white/60 text-sm leading-relaxed">{step.desc}</p>
+ <p className="text-white/60 text-sm  text-left md:text-left">
+  {step.desc}
+</p>
+
+
+</div>
+                  
                 </motion.div>
               ))}
             </div>
-          <h3 className="text-xl font-semibold mt-10 mb-6 text-white/90">Core Competencies</h3>
+            </div>
+          {/* <h3 className="text-xl font-semibold mt-10 mb-6 text-white/90">Core Competencies</h3>
           <div className="flex flex-wrap justify-center gap-6">
             {softSkills.map((skill, index) => (
               <motion.span
@@ -145,12 +161,12 @@ const Skills = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/80 hover:bg-[#D4FF00]/10 hover:border-[#D4FF00]/30 hover:text-[#D4FF00] transition-all cursor-default"
+                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/80 hover:bg-[#FFF98A]/10 hover:border-[#FFF98A]/30 hover:text-[#FFF98A] transition-all cursor-default"
               >
                 {skill}
               </motion.span>
             ))}
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

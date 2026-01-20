@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Brand from "/Brand.jpg?url";
 
 const Portfolio = () => {
   const projects = [
@@ -24,9 +25,17 @@ const Portfolio = () => {
       title: "Branding Logo Design",
       category: "",
       description: "Creative logo design and brand identity projects for various startups and businesses, establishing strong visual foundations.",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+      image: Brand,
       tags: ["Branding", "Logo", "Identity"],
       color: "from-purple-500/20 to-pink-600/20",
+    },
+     {
+      title: "Health Span Life Span",
+      category: "",
+      description: "A wellness platform focusing on longevity and healthy living, featuring personalized health insights and lifestyle recommendations.",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+      tags: ["Web Design", "Mobile", "Health Tech"],
+      color: "from-blue-500/20 to-cyan-600/20",
     },
   ];
 
@@ -77,7 +86,7 @@ const Portfolio = () => {
                 <p className="text-muted-foreground leading-relaxed">{project.description}</p>
                 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 pt-2">
+                <div className="flex flex-wrap gap-2 pt-2 pb-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -90,7 +99,12 @@ const Portfolio = () => {
 
                <Button
   variant="outline"
-  className="mt-4 group/btn border-primary/20 hover:bg-primary hover:text-primary-foreground"
+  className="mt-8 group/btn border-primary/20 hover:bg-primary hover:text-primary-foreground"
+  onClick={() => {
+    if (project.title === "Branding Logo Design") {
+      window.open("https://www.behance.net/gallery/239601115/Logo-Case-Study", "_blank");
+    }
+  }}
 >
   View Case Study
   <ArrowUpRight

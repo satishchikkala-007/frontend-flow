@@ -79,7 +79,7 @@ const Navigation = () => {
           >
             <span className="text-xs text-white/60 font-medium tracking-wider uppercase"></span>
             <span className="text-lg font-bold text-white leading-tight">
-             <span className="text-[#D4FF00]">My Folio</span>
+             <span className="text-[#FFF98A]">My Folio</span>
             </span>
           </a>
 
@@ -93,22 +93,30 @@ const Navigation = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className={`group relative flex flex-col items-center px-4 py-2 rounded-xl transition-all duration-300 ${
+                  className={`group relative flex items-center justify-center px-6 py-2 rounded-xl transition-all duration-300 ${
                     isActive 
-                      ? "bg-[#D4FF00]/20" 
-                      : "hover:bg-white/10"
+                      ? "" 
+                      : ""
                   }`}
                 >
-                  <Icon 
-                    className={`w-5 h-5 transition-colors duration-200 ${
-                      isActive ? "text-[#D4FF00]" : "text-white/70 group-hover:text-white"
-                    }`} 
-                  />
+                  <motion.div
+                    initial={{ opacity: 1, scale: 1 }}
+                    whileHover={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute"
+                  >
+                    <Icon 
+                      className={`w-5 h-5 transition-colors duration-200 ${
+                        isActive ? "text-[#FFF98A] group-hover:text-[#000000]" : "text-white/70 group-hover:text-[#000000] hover:text-[#000000]"
+                      }`} 
+                    />
+                  </motion.div>
                   <motion.span
-                    initial={{ opacity: 0, y: -5 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    className={`absolute top-full mt-1 text-xs font-medium transition-all duration-200 opacity-0 group-hover:opacity-100 ${
-                      isActive ? "text-[#D4FF00]" : "text-white"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className={`absolute text-xs font-medium ${
+                      isActive ? "text-[#FFF98A]" : "text-white"
                     }`}
                   >
                     {link.label}
@@ -181,7 +189,7 @@ const Navigation = () => {
                     transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                     onClick={() => scrollToSection(link.href)}
                     className={`flex items-center gap-4 text-2xl font-medium transition-colors ${
-                      isActive ? "text-[#D4FF00]" : "text-white hover:text-[#D4FF00]"
+                      isActive ? "text-[#FFF98A]" : "text-white hover:text-[#FFF98A]"
                     }`}
                   >
                     <Icon className="w-6 h-6" />
