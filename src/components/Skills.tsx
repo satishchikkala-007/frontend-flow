@@ -109,7 +109,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="sticky top-24 relative bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center"
+              className="md:sticky md:top-24 relative bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center"
             >
               <div className="grid grid-cols-2 gap-3 w-full">
                 {/* {[1, 2, 3, 4].map((i) => (
